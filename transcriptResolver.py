@@ -91,7 +91,7 @@ def main():
     if args.version:
         print("v1.0")
     elif args.manual:
-        webbrowser.open("https://github.com/junyinglim/Notes-from-Nature")
+        webbrowser.open("https://github.com/junyinglim/TranscriptResolver")
     else:
         print("\n\n\n")
         print("=" * 50)
@@ -103,9 +103,7 @@ def main():
         print("\n\n\n")
                
     ## Startup
-    
     currentArgs = transcriptResolver(args)
-    print(currentArgs.file)
     
     # Create empty list
     results = []
