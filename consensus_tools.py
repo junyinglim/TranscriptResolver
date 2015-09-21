@@ -228,7 +228,7 @@ def character_align(x, wdir, consensus_method):
 
     
     # Placeholder characters (= * < > ( ) not allowed in mafft)
-    y = [re.sub(" ", "_", string) for string in x]
+    y = [re.sub("\s", "_", string) for string in x] # convert spaces into underscores
     y = [re.sub("=", "", string) for string in y]
     y = [re.sub("<", "", string) for string in y]
     y = [re.sub(">", "", string) for string in y]
@@ -305,7 +305,7 @@ def variant_consensus(accession, field, data, align_method, consensus_method, wd
     
     entry_id = create_variant_dict(accession, field, data)
 
-    print("Implementing consensus procedure on", field, "field, using", align_method, "alignment method and", consensus_method, "consensus method")
+    print("\nImplementing consensus procedure on", field, "field, using", align_method, "alignment method and", consensus_method, "consensus method")
 
     # Find consensus in NfN data
     entry_results = defaultdict(list)
