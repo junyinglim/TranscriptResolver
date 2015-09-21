@@ -13,6 +13,7 @@ from fuzzywuzzy import process, fuzz # Functions that are useful for fuzzy strin
 from functools import reduce # for the reduce function
 
 import webbrowser
+import copy
 
 class transcriptResolver:
     def __init__(self, args): # __init__ always run when an instance of the class is created
@@ -56,32 +57,39 @@ class transcriptResolver:
         
         ## Define target columns ========================
         ##todo## need to check if target columns are in the file
+        targetlist = []
+        methodlist = []
+        
         if args.col_target and args.col_method:
             temp_target = args.col_target.strip("[|]").split(",")
             temp_method = args.col_method.strip("[|]").split(",")
             if len(temp_target) > 0 and len(temp_method) > 0 and len(temp_method) == len(temp_target):
                 self.col_target = temp_target
                 self.col_method = temp_method
-            
+        
         else:
             while True:
                 temp_target = input("\nDefine the column name to be resolved:\n (Enter nothing to continue to the next step)")
                 temp_method = input("\nPlease define the method for which you would like to use on this column: \n(Enter nothing to continue to the next step)")
             
                 if(temp_method == "" | temp_target == ""):
-                    break
-            
+                    break            
                 else:
-                    self.col_target = temp_target
-                    self.col_method = temp_target
-        
+                    targetlist.append(temp_target)
+                    methodlist.append(temp_target)
+            
+            self.col_target = targetlist
+            self.col_method = methodlist
+                
         [print("\nUsing method", y, "for column", x) for x, y in zip(self.col_target, self.col_method)]
         
         ## Import file ========================
-        self.file = pd.read_csv(filedir, dtype=object,\
-                                usecols = self.col_target + self.col_id) # only use columns that were supplied
+        allcols = copy.copy(self.col_target) # make a copy so we don't alter self.col_target
+        allcols.append(self.col_id)
         
-        ##todo## might be possible problems with encoding? if yes, then supply encoding = "ISO-8859-1" to read_csv()
+        self.file = pd.read_csv(filedir, dtype=object,\
+                                encoding = "ISO-8859-1",
+                                usecols = allcols) # only use columns that were supplied
         self.file = self.file.fillna("") # Converts all NaNs into empty strings for alignment
         
         
@@ -139,7 +147,7 @@ def main():
     
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="phyloGenerator - phylogeny generation for ecologists.", epilog="Help at http://willpearse.github.com/phyloGenerator - written by Will Pearse")
+    parser = argparse.ArgumentParser(description="TranscriptResolver - Let's resolve some crowd-sourced transcriptions!!!", epilog="Help at https://github.com/junyinglim/TranscriptResolver - written by Jun Ying Lim")
     parser.add_argument("--version", action="store_true", help="Display version information.")
     parser.add_argument("--manual", action="store_true", help="(Attempt to) open browser and show help")
     parser.add_argument("-stem", "-n", help="'Stem' name for all output files.") # for command line
