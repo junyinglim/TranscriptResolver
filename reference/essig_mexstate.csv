@@ -1,0 +1,33 @@
+,seq_num,name,iso_code,fips_code,conventional_abbreviation,hasc_code
+0,1,Aguascalientes,AGU,MX01,Ags,MX.AG
+1,2,Baja California,BCN,MX02,BCN,MX.BN
+2,3,Baja California Sur,BCS,MX03,BCS,MX.BS
+3,4,Campeche,CAM,MX04,Camp,MX.CM
+4,5,Chiapas,CHP,MX05,Chis,MX.CP
+5,6,Chihuahua,CHH,MX06,Chih,MX.CH
+6,7,Coahuila,COA,MX07,Coah,MX.CA
+7,8,Colima,COL,MX08,Col,MX.CL
+8,9,Distrito Federal,DIF,MX09,DF,MX.DF
+9,10,Durango,DUR,MX10,Dgo,MX.DU
+10,11,Guanajuato,GUA,MX11,Gto,MX.GJ
+11,12,Guerrero,GRO,MX12,Gro,MX.GR
+12,13,Hidalgo,HID,MX13,Hgo,MX.HI
+13,14,Jalisco,JAL,MX14,Jal,MX.JA
+14,15,México,MEX,MX15,Méx,MX.MX
+15,16,Michoacán,MIC,MX16,Mich,MX.MC
+16,17,Morelos,MOR,MX17,Mor,MX.MR
+17,18,Nayarit,NAY,MX18,Nay,MX.NA
+18,19,Nuevo León,NLE,MX19,NL,MX.NL
+19,20,Oaxaca,OAX,MX20,Oax,MX.OA
+20,21,Puebla,PUE,MX21,Pue,MX.PU
+21,22,Querétaro,QUE,MX22,Qro,MX.QE
+22,23,Quintana Roo,ROO,MX23,QR,MX.QR
+23,24,San Luis Potosí,SLP,MX24,SLP,MX.SL
+24,25,Sinaloa,SIN,MX25,Sin,MX.SI
+25,26,Sonora,SON,MX26,Son,MX.SO
+26,27,Tabasco,TAB,MX27,Tab,MX.TB
+27,28,Tamaulipas,TAM,MX28,Tamps,MX.TM
+28,29,Tlaxcala,TLA,MX29,Tlax,MX.TL
+29,30,Veracruz,VER,MX30,Ver,MX.VE
+30,31,Yucatán,YUC,MX31,Yuc,MX.YU
+31,32,Zacatecas,ZAC,MX32,Zac,MX.ZA

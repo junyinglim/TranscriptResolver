@@ -1,0 +1,242 @@
+,seq_num,code,name,continent
+0,1,AF,Afghanistan,Asia
+1,2,AL,Albania,Europe
+2,3,DZ,Algeria,Africa
+3,4,AS,American Samoa,Pacific Ocean
+4,5,AD,Andorra,Europe
+5,6,AO,Angola,Africa
+6,7,AI,Anguilla,West Indies
+7,8,AQ,Antarctica,Antarctica
+8,9,AG,Antigua and Barbuda,West Indies
+9,10,AR,Argentina,South America
+10,11,AM,Armenia,Europe
+11,12,AW,Aruba,West Indies
+12,13,AU,Australia,Australia
+13,14,AT,Austria,Europe
+14,15,AZ,Azerbaijan,Europe
+15,16,BS,Bahamas,West Indies
+16,17,BH,Bahrain,Asia
+17,18,BD,Bangladesh,Asia
+18,19,BB,Barbados,West Indies
+19,20,BY,Belarus,Europe
+20,21,BE,Belgium,Europe
+21,22,BZ,Belize,Central America
+22,23,BJ,Benin,Africa
+23,24,BM,Bermuda,West Indies
+24,25,BT,Bhutan,Asia
+25,26,BO,Bolivia,South America
+26,27,BA,Bosnia and Herzegovina,Europe
+27,28,BW,Botswana,Africa
+28,29,BV,Bouvet Island,Atlantic Ocean
+29,30,BR,Brazil,South America
+30,31,IO,British Indian Ocean Territory,Indian Ocean
+31,32,BN,Brunei Darussalam,Asia
+32,33,BG,Bulgaria,Europe
+33,34,BF,Burkina Faso,Africa
+34,35,BI,Burundi,Africa
+35,36,KH,Cambodia,Asia
+36,37,CM,Cameroon,Africa
+37,38,CA,Canada,North America
+38,39,CV,Cape Verde,Atlantic Ocean
+39,40,KY,Cayman Islands,West Indies
+40,41,CF,Central African Republic,Africa
+41,42,TD,Chad,Africa
+42,43,CL,Chile,South America
+43,44,CN,China,Asia
+44,45,CX,Christmas Island,Indian Ocean
+45,46,CC,Cocos (Keeling) Islands,Indian Ocean
+46,47,CO,Colombia,South America
+47,48,KM,Comoros,Africa
+48,49,CG,Congo,Africa
+49,50,CD,"Congo, the Democratic Republic of the",Africa
+50,51,CK,Cook Islands,Pacific Ocean
+51,52,CR,Costa Rica,Central America
+52,53,CI,Cote d'Ivoire,Africa
+53,54,HR,Croatia,Europe
+54,55,CU,Cuba,West Indies
+55,56,CY,Cyprus,Asia
+56,57,CZ,Czech Republic,Europe
+57,58,DK,Denmark,Europe
+58,59,DJ,Djibouti,Africa
+59,60,DM,Dominica,West Indies
+60,61,DO,Dominican Republic,West Indies
+61,62,TP,East Timor,Pacific Ocean
+62,63,EC,Ecuador,South America
+63,64,EG,Egypt,Africa
+64,65,SV,El Salvador,Central America
+65,66,GQ,Equatorial Guinea,Africa
+66,67,ER,Eritrea,Africa
+67,68,EE,Estonia,Europe
+68,69,ET,Ethiopia,Africa
+69,70,FK,Falkland Islands (Malvinas),Atlantic Ocean
+70,71,FO,Faroe Islands,Atlantic Ocean
+71,72,FJ,Fiji,Pacific Ocean
+72,73,FI,Finland,Europe
+73,74,FR,France,Europe
+74,75,GF,French Guiana,South America
+75,76,PF,French Polynesia,Pacific Ocean
+76,77,TF,French Southern Territories,Indian Ocean
+77,78,GA,Gabon,Africa
+78,79,GM,Gambia,Africa
+79,80,GE,Georgia,Europe
+80,81,DE,Germany,Europe
+81,82,GH,Ghana,Africa
+82,83,GI,Gibraltar,Europe
+83,84,GR,Greece,Europe
+84,85,GL,Greenland,North America
+85,86,GD,Grenada,West Indies
+86,87,GP,Guadeloupe,West Indies
+87,88,GU,Guam,Pacific Ocean
+88,89,GT,Guatemala,Central America
+89,90,GN,Guinea,Africa
+90,91,GW,Guinea-Bissau,Africa
+91,92,GY,Guyana,South America
+92,93,HT,Haiti,West Indies
+93,94,HM,Heard Island and McDonald Islands,Indian Ocean
+94,95,VA,Holy See (Vatican City State),Europe
+95,96,HN,Honduras,Central America
+96,97,HK,Hong Kong,Asia
+97,98,HU,Hungary,Europe
+98,99,IS,Iceland,Europe
+99,100,IN,India,Asia
+100,101,ID,Indonesia,Asia
+101,102,IR,"Iran, Islamic Republic of",Asia
+102,103,IQ,Iraq,Asia
+103,104,IE,Ireland,Europe
+104,105,IL,Israel,Asia
+105,106,IT,Italy,Europe
+106,107,JM,Jamaica,West Indies
+107,108,JP,Japan,Asia
+108,109,JO,Jordan,Asia
+109,110,KZ,Kazakhstan,Asia
+110,111,KE,Kenya,Africa
+111,112,KI,Kiribati,Pacific Ocean
+112,113,KP,"Korea, Democratic People's Republic of",Asia
+113,114,KR,"Korea, Republic of",Asia
+114,115,KW,Kuwait,Asia
+115,116,KG,Kyrgyzstan,Asia
+116,117,LA,Lao People's Democratic Republic,Asia
+117,118,LV,Latvia,Europe
+118,119,LB,Lebanon,Asia
+119,120,LS,Lesotho,Africa
+120,121,LR,Liberia,Africa
+121,122,LY,Libyan Arab Jamahiriya,Africa
+122,123,LI,Liechtenstein,Europe
+123,124,LT,Lithuania,Europe
+124,125,LU,Luxembourg,Europe
+125,126,MO,Macau,Asia
+126,127,MK,"Macedonia, the Former Yugoslav Republic of",Europe
+127,128,MG,Madagascar,Africa
+128,129,MW,Malawi,Africa
+129,130,MY,Malaysia,Asia
+130,131,MV,Maldives,Indian Ocean
+131,132,ML,Mali,Africa
+132,133,MT,Malta,Europe
+133,134,MH,Marshall Islands,Pacific Ocean
+134,135,MQ,Martinique,West Indies
+135,136,MR,Mauritania,Africa
+136,137,MU,Mauritius,Indian Ocean
+137,138,YT,Mayotte,Africa
+138,139,MX,Mexico,North America
+139,140,FM,"Micronesia, Federated States of",Pacific Ocean
+140,141,MD,"Moldova, Republic of",Europe
+141,142,MC,Monaco,Europe
+142,143,MN,Mongolia,Asia
+143,144,MS,Montserrat,West Indies
+144,145,MA,Morocco,Africa
+145,146,MZ,Mozambique,Africa
+146,147,MM,Myanmar,Asia
+147,148,NA,Namibia,Africa
+148,149,NR,Nauru,Pacific Ocean
+149,150,NP,Nepal,Asia
+150,151,NL,Netherlands,Europe
+151,152,AN,Netherlands Antilles,West Indies
+152,153,NC,New Caledonia,Pacific Ocean
+153,154,NZ,New Zealand,Pacific Ocean
+154,155,NI,Nicaragua,Central America
+155,156,NE,Niger,Africa
+156,157,NG,Nigeria,Africa
+157,158,NU,Niue,Pacific Ocean
+158,159,NF,Norfolk Island,Pacific Ocean
+159,160,MP,Northern Mariana Islands,Pacific Ocean
+160,161,NO,Norway,Europe
+161,162,OM,Oman,Asia
+162,163,PK,Pakistan,Asia
+163,164,PW,Palau,Pacific Ocean
+164,165,PA,Panama,Central America
+165,166,PG,Papua New Guinea,Pacific Ocean
+166,167,PY,Paraguay,South America
+167,168,PE,Peru,South America
+168,169,PH,Philippines,Asia
+169,170,PN,Pitcairn,Pacific Ocean
+170,171,PL,Poland,Europe
+171,172,PT,Portugal,Europe
+172,173,PR,Puerto Rico,West Indies
+173,174,QA,Qatar,Asia
+174,175,RE,RÉunion,Indian Ocean
+175,176,RO,Romania,Europe
+176,177,RU,Russian Federation,Asia
+177,178,RW,Rwanda,Africa
+178,179,SH,Saint Helena,Atlantic Ocean
+179,180,KN,Saint Kitts and Nevis,West Indies
+180,181,LC,Saint Lucia,West Indies
+181,182,PM,Saint Pierre and Miquelon,North America
+182,183,VC,Saint Vincent and the Grenadines,West Indies
+183,184,WS,Samoa,Pacific Ocean
+184,185,SM,San Marino,Europe
+185,186,ST,Sao Tome and Principe,Africa
+186,187,SA,Saudi Arabia,Asia
+187,188,SN,Senegal,Africa
+188,189,SC,Seychelles,Africa
+189,190,SL,Sierra Leone,Africa
+190,191,SG,Singapore,Asia
+191,192,SK,Slovakia,Europe
+192,193,SI,Slovenia,Europe
+193,194,SB,Solomon Islands,Pacific Ocean
+194,195,SO,Somalia,Africa
+195,196,ZA,South Africa,Africa
+196,197,GS,South Georgia and the South Sandwich Islands,Atlantic Ocean
+197,198,ES,Spain,Europe
+198,199,LK,Sri Lanka,Asia
+199,200,SD,Sudan,Africa
+200,201,SR,Suriname,South America
+201,202,SJ,Svalbard and Jan Mayen,Arctic Ocean
+202,203,SZ,Swaziland,Africa
+203,204,SE,Sweden,Europe
+204,205,CH,Switzerland,Europe
+205,206,SY,Syrian Arab Republic,Asia
+206,207,TW,Taiwan,Asia
+207,208,TJ,Tajikistan,Asia
+208,209,TZ,"Tanzania, United Republic of",Africa
+209,210,TH,Thailand,Asia
+210,211,TG,Togo,Africa
+211,212,TK,Tokelau,Pacific Ocean
+212,213,TO,Tonga,Pacific Ocean
+213,214,TT,Trinidad and Tobago,West Indies
+214,215,TN,Tunisia,Africa
+215,216,TR,Turkey,Asia
+216,217,TM,Turkmenistan,Asia
+217,218,TC,Turks and Caicos Islands,West Indies
+218,219,TV,Tuvalu,Pacific Ocean
+219,220,UG,Uganda,Africa
+220,221,UA,Ukraine,Europe
+221,222,AE,United Arab Emirates,Asia
+222,223,GB,United Kingdom,Europe
+223,224,US,United States,North America
+224,225,UM,United States Minor Outlying Islands,Pacific Ocean
+225,226,UY,Uruguay,South America
+226,227,UZ,Uzbekistan,Asia
+227,228,VU,Vanuatu,Pacific Ocean
+228,229,VE,Venezuela,South America
+229,230,VN,Viet Nam,Asia
+230,231,VG,"Virgin Islands, British",West Indies
+231,232,VI,"Virgin Islands, U.S.",West Indies
+232,233,WF,Wallis and Futuna,Pacific Ocean
+233,234,EH,Western Sahara,Africa
+234,235,YE,Yemen,Asia
+235,237,ZM,Zambia,Africa
+236,238,ZW,Zimbabwe,Africa
+237,244,LL,Somaliland,Africa
+238,241,PS,"Palestinian Territory, Occupied",Asia
+239,242,RS,Serbia,Europe
+240,243,ME,Montenegro,Europe
