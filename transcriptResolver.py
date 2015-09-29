@@ -72,11 +72,11 @@ class transcriptResolver:
                 temp_target = input("\nDefine the column name to be resolved:\n (Enter nothing to continue to the next step)")
                 temp_method = input("\nPlease define the method for which you would like to use on this column: \n(Enter nothing to continue to the next step)")
             
-                if(temp_method == "" | temp_target == ""):
+                if(temp_method == "" or temp_target == ""):
                     break            
-                else:
-                    targetlist.append(temp_target)
-                    methodlist.append(temp_target)
+                
+                targetlist.append(temp_target)
+                methodlist.append(temp_target)
             
             self.col_target = targetlist
             self.col_method = methodlist
@@ -147,7 +147,7 @@ def main():
     
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="TranscriptResolver - Let's resolve some crowd-sourced transcriptions!!!", epilog="Help at https://github.com/junyinglim/TranscriptResolver - written by Jun Ying Lim")
+    parser = argparse.ArgumentParser(description="phyloGenerator - phylogeny generation for ecologists.", epilog="Help at http://willpearse.github.com/phyloGenerator - written by Will Pearse")
     parser.add_argument("--version", action="store_true", help="Display version information.")
     parser.add_argument("--manual", action="store_true", help="(Attempt to) open browser and show help")
     parser.add_argument("-stem", "-n", help="'Stem' name for all output files.") # for command line
