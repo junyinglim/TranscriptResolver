@@ -18,7 +18,7 @@ def main():
     
     ## Import transcription file ========================
     print("\nImporting transcription file ", args.file, " ...")
-    data = pd.read_csv(args.file, encoding = "ISO-8859-1", dtype = "object")
+    data = pd.read_csv(os.path.join(args.wd, args.file), encoding = "ISO-8859-1", dtype = "object")
     data = data.fillna("")
 
     ## Prepping transcription file ========================
@@ -66,15 +66,16 @@ def main():
     if args.output:
         outputfile = args.output
     else:
-        outputfile = "transcript_prepped"
+        outputfile = "prep_transcript"
     
     print("\nExporting prepared transcriptions to", os.getcwd())
-    data.to_csv(outputfile + ".csv", index = False)
+    data.to_csv(os.path.join(args.wd, outputfile + ".csv"), index = False)
     
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="transcriptResolver - Let's resolve some crowd-sourced transcripts!")
-    parser.add_argument("-file", "-f", help = "File with transcriptions. Full file path required!")
-    parser.add_argument("-output", help = "Output file name. Full path not required")
+    parser = argparse.ArgumentParser(description="transcriptPrepare - Let's prepare some crowd-sourced transcripts!")
+    parser.add_argument("-file", "-f", help = "File with transcriptions")
+    parser.add_argument("-output", help = "Output file name")
+    parser.add_argument("-wd", help = "Working directory")
     parser.add_argument("-col_id", help = "List of columns to be checked")
     parser.add_argument("-username", help = "Username. Access to essig SQL database")
     parser.add_argument("-password", help = "Password. Access to essig SQL database")
