@@ -385,13 +385,19 @@ def main():
 
     ## EXPORTING RESULTS ========================
     print("\nExporting results to", args.wd, "...")
-    allClean.to_csv(os.path.join(args.wd, "transcript_clean.csv"), index = False)
+    
+    if args.output:
+        outputfile = args.output
+    else:
+        outputfile = "clean_transcript"
+
+    allClean.to_csv(os.path.join(args.wd, outputfile + ".csv"), index = False)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="transcriptCleaner - Let's bulk upload some cleaned-up crowd sourced specimen data!")
+    parser = argparse.ArgumentParser(description="transcriptClean - Let's clean some transcripts!")
     parser.add_argument("-wd", help = "Working directory")
     parser.add_argument("-file", "-f", help = "File with transcriptions")
-    parser.add_argument("-output" "-o", help = "File with transcriptions")
+    parser.add_argument("-output", "-o", help = "Output file name")
     parser.add_argument("-username", help = "Username. Access to essig SQL database")
     parser.add_argument("-password", help = "Password. Access to essig SQL database")
     main()
