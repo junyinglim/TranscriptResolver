@@ -13,24 +13,24 @@ Department of Integrative Biology and UC Museum of Paleontology, University of C
 * Uses sequence alignment algorithms to find consensus strings (http://blog.notesfromnature.org/2014/01/14/checking-notes-from-nature-data/)
 
 Different consensus methods:
-*`vote_count` - Chooses the most frequently occurring value. Recommended for fields where choice of values is constrained (e.g., drop down lists)
-*`consensus` - Implements a character sequence alignment on replicate strings and produces a consensus string. Recommended for fields where input is more free-style (e.g., verbatim transcription of fields)
+* `vote_count` - Chooses the most frequently occurring value. Recommended for fields where choice of values is constrained (e.g., drop down lists)
+* `consensus` - Implements a character sequence alignment on replicate strings and produces a consensus string. Recommended for fields where input is more free-style (e.g., verbatim transcription of fields)
 * `metadata` - Does not perform any consensus method per se. Instead combines all values into a single string, delimited by "|"
 
 ### TranscriptPrepare
 * Custom script to prepare raw Notes from Nature output for resolving using TranscriptResolver
-Main steps:
-1. Normalizes or prepare fields 
-2. Cleans up column headers
-3. Creates a file for bulk upload into the Essig Database
+* Main steps:
+** Normalizes or prepare fields 
+** Cleans up column headers
+** Creates a file for bulk upload into the Essig Database
 
 
 ### TranscriptClean
 * Custom script to prepare raw Notes from Nature output for resolving using TranscriptResolver
-Main steps:
-1. Normalizes or prepare fields 
-2. Cleans up column headers
-3. Creates a file for bulk upload into the Essig Database
+* Main steps:
+** Normalizes or prepare fields 
+** Cleans up column headers
+** Creates a file for bulk upload into the Essig Database
 
 
 # Installation
