@@ -21,10 +21,13 @@ class transcriptResolver:
         ## Define stem name ========================
         if args.stem:
             self.stem = args.stem
+            
         else:
             print("\nPlease input a 'stem' name to act as a prefix to all output (e.g., stemname_calbug.csv)")
             self.stem = input("Stem name: ")
-        
+
+        self.stem = self.stem + "_"
+
         print("\nStem name for all outputs will be '" + self.stem + "'")
         
         ## Define working directory ========================
@@ -141,7 +144,7 @@ def main():
     # Merge results
     allResults = reduce(lambda a, d: pd.merge(a, d, on = currentArgs.col_id), results)
             
-    finalDir = os.path.join(currentArgs.wd, currentArgs.stem + "_results.csv")
+    finalDir = os.path.join(currentArgs.wd, currentArgs.stem + "transcript.csv")
     allResults.to_csv(finalDir, index = False)
     print("\nExporting results to", finalDir)
     
