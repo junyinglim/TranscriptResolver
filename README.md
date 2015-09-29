@@ -20,24 +20,24 @@ Different consensus methods:
 ### TranscriptPrepare
 * Custom script to prepare raw Notes from Nature output for resolving using TranscriptResolver
 * Main steps:
-** Normalizes or prepare fields 
-** Cleans up column headers
-** Creates a file for bulk upload into the Essig Database
+  * Normalizes or prepare fields 
+  * Cleans up column headers
+  * Creates a file for bulk upload into the Essig Database
 
 
 ### TranscriptClean
 * Custom script to prepare raw Notes from Nature output for resolving using TranscriptResolver
 * Main steps:
-** Normalizes or prepare fields 
-** Cleans up column headers
-** Creates a file for bulk upload into the Essig Database
+  * Normalizes or prepare fields 
+  * Cleans up column headers
+  * Creates a file for bulk upload into the Essig Database
 
 
 # Installation
 ### Python packages
 You will require a number of python packages to run this. You can do this by using the pip installer. If you're running Python 3, pip should be by default installed. Input the following in Terminal
 
-`pip3 install fuzzywuzzy numpy pandas nltk python-Levenshtein pymysql`
+`pip3 install fuzzywuzzy numpy pandas nltk python-Levenshtein pymysql biopython`
 
 ### Other binaries
 The string consensus functions use the sequence alignment algorithms provided in MAFFT. You will have to install mafft into the directory `/usr/local/bin`
