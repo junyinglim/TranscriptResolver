@@ -224,7 +224,7 @@ class transcriptCleaner:
         # Populate misc database fields
         other_metadata['IndividualCount'] = 1
         other_metadata['EnteredBy'] = "Notes from Nature"
-        other_metadata["BasisOfRecord"] = "specimen"
+        other_metadata["BasisOfRecord"] = "PreservedSpecimen"
         other_metadata['LifeStage'] = "adult"
         other_metadata['PreparationType'] = "pin"
 
