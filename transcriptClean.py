@@ -146,6 +146,15 @@ class transcriptCleaner:
         split_end_date["DayCollected2"] = [date.replace('00', '') for date in split_end_date["DayCollected2"]]
         split_end_date["YearCollected2"] = [date.replace('0000', '') for date in split_end_date["YearCollected2"]]
 
+        # Remove incomplete dates where day but not month was recovered
+        for i in range(len(split_begin_date)):
+            if split_begin_date["DayCollected"][i] != "" and split_begin_date["MonthCollected"][i] == "":
+                split_begin_date["DayCollected"][i] = ""
+        for i in range(len(split_end_date)):
+            if split_end_date["DayCollected2"][i] != "" and split_end_date["MonthCollected2"][i] == "":
+                split_end_date["DayCollected2"][i] = ""
+
+
         # Remove nonsensical dates as ambiguity
         for i in range(len(split_begin_date)):
             if split_begin_date["MonthCollected"][i] in ["02", "04", "06", "09", "11"] and split_begin_date["DayCollected"][i] == "31":
@@ -153,10 +162,12 @@ class transcriptCleaner:
             if split_begin_date["MonthCollected"][i] == "" and split_begin_date["DayCollected"][i] != "":
                 split_begin_date["DayCollected"][i] == ""
         for i in range(len(split_end_date)):
-            if split_begin_date["MonthCollected"][i] in ["02", "04", "06", "09", "11"] and split_begin_date["DayCollected"][i] == "31":
-                split_begin_date["DayCollected"][i] = ""
-            if split_begin_date["MonthCollected"][i] == "" and split_begin_date["DayCollected"][i] != "":
-                split_begin_date["DayCollected"][i] == ""
+            if split_end_date["MonthCollected2"][i] in ["02", "04", "06", "09", "11"] and split_end_date["DayCollected2"][i] == "31":
+                split_end_date["DayCollected2"][i] = ""
+            if split_end_date["MonthCollected2"][i] == "" and split_end_date["DayCollected2"][i] != "":
+                split_end_date["DayCollected2"][i] == ""
+
+
 
         self.begin_date = split_begin_date
         self.end_date = split_end_date
