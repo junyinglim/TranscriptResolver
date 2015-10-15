@@ -228,16 +228,19 @@ class transcriptCleaner:
         # Remove filename versions (e.g., EMEC 12345.0 from bnhm_ids)
         taxa_metadata['bnhm_id'] = [re.sub("\.*", "", k) for k in taxa_metadata['bnhm_id']]
 
+        # Dealing with subsequent changes in institution code
+        taxa_metadata['bnhm_id'] = [re.sub('^CIS*', 'UCIS', k) for k in taxa_metadata['bnhm_id']]
+
         # Match abbreviations with respective holding institution
         other_metadata['HoldingInstitution'] = [bnhm_id[0:3] for bnhm_id in taxa_metadata["bnhm_id"]]
         other_metadata['HoldingInstitution'] = [essig_holdinginst_dict[k] for k in other_metadata['HoldingInstitution']]
 
         # Populate misc database fields
         other_metadata['IndividualCount'] = 1
-        other_metadata['EnteredBy'] = "Notes from Nature"
-        other_metadata["BasisOfRecord"] = "PreservedSpecimen"
-        other_metadata['LifeStage'] = "adult"
-        other_metadata['PreparationType'] = "pin"
+        other_metadata['EnteredBy'] = 'Notes from Nature'
+        other_metadata['BasisOfRecord'] = 'PreservedSpecimen'
+        other_metadata['LifeStage'] = 'adult'
+        other_metadata['PreparationType'] = 'pin'
 
         metadata = pd.concat([taxa_metadata, other_metadata], axis = 1) 
         self.metadata = metadata
