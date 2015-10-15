@@ -396,6 +396,8 @@ def main():
     allClean.rename(columns={'subject_id':'TranscriptionSubjectIDs', "id":"TranscriptionIDs"}, inplace=True)
     allClean = allClean.fillna("") # remove all NAs
     
+    # Remove duplicate bnhm_id numbers
+    allClean = allClean.drop_duplicates('bnhm_id', keep = False)
 
     ## EXPORTING RESULTS ========================
     print("\nExporting results to", args.wd, "...")
