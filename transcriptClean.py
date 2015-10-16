@@ -8,6 +8,7 @@ import csv
 
 from name_splitter import * # Code courtesy of Charles McCallum
 from normalization_tools import *
+from collections import defaultdict # utility functions to create dictionaries
 import pymysql
 import argparse
 from functools import reduce # for the reduce function
@@ -24,6 +25,8 @@ class transcriptCleaner:
             data = pd.read_csv(args.file, encoding = "ISO-8859-1", dtype = "object")
         
         self.data = data.fillna("")
+        self.data["filename"]
+        self.errorLog = defaultdict(list)
         
         ## CREATING REFERNECE LISTS ========================
         print("\nCreating reference lists for some fields")
@@ -46,7 +49,7 @@ class transcriptCleaner:
         self.essig_mexstate = pd.read_csv(os.path.join(os.getcwd(), "reference", "essig_mexstate.csv"), encoding = "latin-1")
         self.essig_statecounty = pd.read_csv(os.path.join(os.getcwd(), "reference", "essig_statecounty.csv"))
         self.essig_holdinginst   = pd.read_csv(os.path.join(os.getcwd(), "reference", "essig_inst.csv"))
-    
+
     def normalizeCollector(self):
         print("\nSplitting collector name strings ...")
     
@@ -150,25 +153,32 @@ class transcriptCleaner:
         for i in range(len(split_begin_date)):
             if split_begin_date["DayCollected"][i] != "" and split_begin_date["MonthCollected"][i] == "":
                 split_begin_date["DayCollected"][i] = ""
+                self.errorLog[self.data["bnhm_id"][i]].append("Incomplete collection begin date")
+
+            if split_begin_date["MonthCollected"][i] == "" and split_begin_date["DayCollected"][i] != "":
+                split_begin_date["DayCollected"][i] == ""
+                self.errorLog[self.data["bnhm_id"][i]].append("Incomplete collection begin date")
+
         for i in range(len(split_end_date)):
             if split_end_date["DayCollected2"][i] != "" and split_end_date["MonthCollected2"][i] == "":
                 split_end_date["DayCollected2"][i] = ""
+                self.errorLog[self.data["bnhm_id"][i]].append("Incomplete collection end date")
 
+            if split_end_date["MonthCollected2"][i] == "" and split_end_date["DayCollected2"][i] != "":
+                split_end_date["DayCollected2"][i] == ""
+                self.errorLog[self.data["bnhm_id"][i]].append("Incomplete collection end date")
 
         # Remove nonsensical dates as ambiguity
         for i in range(len(split_begin_date)):
             if split_begin_date["MonthCollected"][i] in ["02", "04", "06", "09", "11"] and split_begin_date["DayCollected"][i] == "31":
                 split_begin_date["DayCollected"][i] = ""
-            if split_begin_date["MonthCollected"][i] == "" and split_begin_date["DayCollected"][i] != "":
-                split_begin_date["DayCollected"][i] == ""
+                self.errorLog[self.data["bnhm_id"][i]].append("Nonsensical collection begin date")
+            
         for i in range(len(split_end_date)):
             if split_end_date["MonthCollected2"][i] in ["02", "04", "06", "09", "11"] and split_end_date["DayCollected2"][i] == "31":
                 split_end_date["DayCollected2"][i] = ""
-            if split_end_date["MonthCollected2"][i] == "" and split_end_date["DayCollected2"][i] != "":
-                split_end_date["DayCollected2"][i] == ""
-
-
-
+                self.errorLog[self.data["bnhm_id"][i]].append("Nonsensical collection end date")
+            
         self.begin_date = split_begin_date
         self.end_date = split_end_date
 
@@ -243,6 +253,7 @@ class transcriptCleaner:
         other_metadata['PreparationType'] = 'pin'
 
         metadata = pd.concat([taxa_metadata, other_metadata], axis = 1) 
+        self.data['bnhm_id'] = taxa_metadata['bnhm_id']
         self.metadata = metadata
 
     def normalizeGeography(self):
@@ -362,6 +373,12 @@ def main():
     pipeline = transcriptCleaner(args)
     
     ## CLEANUP ========================
+    ## Prepare metadata
+    # Metadata has to prepped first as the bnhm_id will be used to log errors in dates
+    print("\nPreparing metadata fields in the resolved transcriptions ...")
+    pipeline.prepMetadata()
+    metadata = pipeline.metadata
+
     ## Normalize collectors
     print("\nNormalizing collector names in the resolved transcriptions ...")
     pipeline.normalizeCollector()
@@ -373,11 +390,6 @@ def main():
     
     begin_date = pipeline.begin_date
     end_date = pipeline.end_date
-    
-    ## Prepare metadata
-    print("\nPreparing metadata fields in the resolved transcriptions ...")
-    pipeline.prepMetadata()
-    metadata = pipeline.metadata
     
     ## Normalize geography fields
     print("\nNormalizing geography fields in the resolved transcriptions ...")
@@ -396,8 +408,14 @@ def main():
     allClean.rename(columns={'subject_id':'TranscriptionSubjectIDs', "id":"TranscriptionIDs"}, inplace=True)
     allClean = allClean.fillna("") # remove all NAs
     
+    # Identify duplicates and log them
+    duplicates = list(allClean["bnhm_id"][allClean.duplicated(keep = False)])
+    for x in duplicates:
+        pipeline.errorLog[x].append("Potential duplicate")
+
     # Remove duplicate bnhm_id numbers
     allClean = allClean.drop_duplicates('bnhm_id', keep = False)
+
 
     ## EXPORTING RESULTS ========================
     print("\nExporting results to", args.wd, "...")
@@ -408,6 +426,14 @@ def main():
         outputfile = "clean_transcript"
 
     allClean.to_csv(os.path.join(args.wd, outputfile + ".csv"), index = False)
+
+    ## PRINT OUT ERRORS ========================
+    if(len(pipeline.errorLog) > 0):
+        print("\nExporting potential errors \n")
+        with open(os.path.join(args.wd, 'error_transcript.csv'), 'w') as f:
+            for i in pipeline.errorLog:
+                for j in pipeline.errorLog[i]:
+                    f.write('{0},{1}\n'.format(i, j))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="transcriptClean - Let's clean some transcripts!")
